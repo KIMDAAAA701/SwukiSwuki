@@ -1,0 +1,139 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <title></title>
+    </head>
+    <style>
+        body {
+            background-color: #FAFAFA;
+        }
+        .wikiheader_frame {
+            width: 100%;
+            height: 150px;
+
+            /* border: 1px solid red; */
+        }
+        .main_frame {
+            display: inline-block;
+            width: 70%;
+            height: 150px;
+            margin: 0 15% 0;
+            background: white;
+            /* border: 1px solid orange; */
+        }
+        .logoimg_frame {
+            position: inline-block;
+            width: 40%;
+            height: 100%;
+            float: left;
+            /* border: 1px solid yellow; */
+        }
+        .serach_navigate_frame{
+            position: relative;
+            width: 55%;
+            height: 100%;
+            float: left;
+            /* border: 1px solid brown; */
+        }
+        .serach_navigate_frame .search_frame {
+            position: relative;
+            width: 82%;
+            height: 60%;
+            /* height: auto; */
+            margin: 4% 9% auto;
+            /* border: 1px solid green; */
+        }
+        .textimg_frame {
+            width: 100%;
+            height: 100%;
+        }
+        .form_frame {
+            position: relative;
+            left: 9%;
+            top: -68%;
+            width: 82%;
+            height: 60%;
+            /* border: 1px solid blue; */
+        }
+        .form_frame .search_txt {
+            position: relative;
+            display: inline-block;
+            width: 78%;
+            height: 50px;
+            left: 8%;
+            margin: 7% 0 0;
+            box-sizing: border-box;
+            color:black;
+            background-color:transparent;
+            font-size: 2em;
+            border:0px transparent;
+            outline: none !important;
+            /* border: 1px solid blueviolet; */
+        }
+        .form_frame .search_bnt {
+            position: relative;
+            /* left: 6%;
+            top: -5%; */
+            left: 5%;
+            display: inline-block;
+            width: 15%; 
+            height: 15%;
+            background-color: transparent;
+            border: transparent;
+            /* border: 1px solid blueviolet; */
+        }
+        #search_btn_img {
+            width: 100%; height:100%;
+        }
+        .serach_navigate_frame .navigae_frame {
+            position: relative;
+            top: -63%;
+            left: 10%;
+
+            width: 80%; 
+            height: 14%;
+            text-align: center;
+            /* border: 1px solid blueviolet; */
+        }
+        .search_btn_img01 {
+            position: relative;
+            left: 3%;
+            top: 10;
+            display: inline-block;
+            width: 13%; 
+            height: auto;
+            background-color: transparent;
+            border: transparent;
+        }
+    </style>
+    <body>
+        <div class="wikiheader_frame">
+            <div class="main_frame">
+                <div class="logoimg_frame">
+                    <a href="/WikiHome" ><img src="/images/wikilogo.png" style="width: 98%; height:98%;"></a>
+                </div>
+                <div class="serach_navigate_frame">
+                    <div class="search_frame">
+                        <img src="/images/text_box.png" class="textimg_frame"></a>
+                    </div>
+                    <div class="form_frame">
+                        <form action="/WikiHome/Search" name="search" method="get" charset="EUC-KR" >
+                            <input type="text" class="search_txt" name="keyword">
+                            <!-- <button type="submit" class="search_bnt"><img id="search_btn_img" src="/images/search_button.png"></button> -->
+                            <input type="image" src="/images/search_button.png" alt="Submit" name="" class="search_btn_img01">
+                            <!-- <input type="submit" value="검색" class="search_btn_img02"> -->
+                        </form>
+                    </div>
+                    <div class="navigae_frame">
+                        <A href="/WikiHome/Vote" style="text-decoration:none; color: black; font-size: 1em;" >투표하기</A>
+                         &nbsp;&nbsp;<font size="3" color="gray">|</font>&nbsp;&nbsp;
+                         <A href="/WikiHome/NewFileGuide"style="text-decoration:none; color: black; font-size: 1em;">새 문서 작성</A>
+                         &nbsp;&nbsp;<font size="3" color="gray">|</font>&nbsp;&nbsp;
+                         <A href="/WikiHome/Tutorial"style="text-decoration:none; color: black; font-size: 1em;">튜토리얼</A>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr width="70%" style="border: 2px solid #00005c; margin: 5px 15% 15px;">
+    </body>
+</html>

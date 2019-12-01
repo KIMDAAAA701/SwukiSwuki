@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>WikiHome_page</title>
+        <% include ./partials/wiki_header %>
+    </head>
+    <!-- <script type="text/javascript" src="../visual_editor/ckeditor/ckeditor.js"></script> -->
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script>
+        $('#title_fild').keydown(function(){
+        var rows = $('#title_fild').val().split('\n').length;
+        var maxRows = 1;
+        if( rows > maxRows){
+            alert('1줄 까지만 가능합니다');
+            modifiedText = $('#title_fild').val().split("\n").slice(0, maxRows);
+            $('#title_fild').val(modifiedText.join("\n"));
+        }
+    });
+    </script>
+    <style>
+        .big_frame {
+            width: 100%;
+            height: auto;
+            /* border: 1px solid blue; */
+        }
+        .real_frame {
+            position: inline-block;
+            width: 68%;
+            min-height: 700px;
+            margin: auto 16% auto;
+            /* border: 1px solid red; */
+        }
+        .title_frame {
+            position: inline-block;
+            width: 68%;
+            height: 10%;
+            margin: auto 16% auto;
+            /* border: 1px solid black; */
+        }
+        .submit_btn_checkbox_frame {
+            position: inline-block;
+            width: 70%;
+            height: 10%;
+            margin: auto 15% auto;
+            border: 1px solid red;
+        }
+        .submit_btn {
+            position: inline-block;
+            width: 35%;
+            height: 100%;
+            /* margin: 1% 30% 0; */
+            font-size: 0.8em;
+            color:rgb(82, 121, 248);
+            vertical-align: center;
+            background-color: white;
+            border: 1px solid rgb(204, 203, 203);
+            /* border: 1px solid black; */
+            float: left;
+        }
+        .title_textarea {
+            display: inline-block;
+            width: 100%;
+            height: 65%;
+            margin: 2.5% 0 0;
+            resize: none;
+            font-size: 2em;
+            /* cols: 1; */
+        }
+        .btn_checkbox{
+            width: 40%;
+            height: 80%;
+            margin: 1% 30% auto;
+            /* border: 1px solid green; */
+        }
+        .ask_blochain{
+            width: 60%;
+            height: 50%;
+            text-align: center;
+            font-size: 1em;
+            position: inline-block;
+            float: left;
+            margin: 5% 2% auto;
+            /* border: 1px solid black; */
+        }
+    </style>
+    <body>
+        <hr width="70%" style="border: 2px solid #00005C;">
+        <div class="big_frame">
+            <form name="edit_frame" method="POST" action='/WikiHome/Edit'>
+                <div class="title_frame">
+                    <textarea required name="title_fild" id="title_fild" wrap="hard" class="title_textarea" placeholder='문서의 제목을 입력하시오''></textarea>
+                </div>
+                <hr width="68%" style="border: 0.5px solid rgb(144, 144, 146); margin: 1% 16% 1%;">
+                <div class="real_frame">
+                    <textarea required name="editor" id="editor"></textarea>
+                    <script>
+                        window.onload = function() {
+                            CKEDITOR.replace( 'editor' );
+                        };
+                    </script>
+                </div>
+                <div class="submit_btn_checkbox_frame">
+                    <div class="btn_checkbox">
+                        <input type="submit" value="작성 완료" name="save_newfile" class="submit_btn">
+                        <div class="ask_blochain">
+                            블록체인에 글을 올리시겠습니까?<input type="checkbox" name="on_vote" value="t">
+                        </div>
+                    </div>
+                </div>
+             </frame>
+        </div>
+    </body>
+</html>

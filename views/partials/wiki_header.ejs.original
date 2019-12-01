@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <style>
+        body {
+            background-color: white;
+        }
+        .head_width {
+            text-align: center;
+            /* width: 1422px;  */
+            width: 100%;
+            height:150px;
+            /* border: 1px solid black; */
+            /* margin: 10px auto 2px; */
+        }
+        .head_width .in {
+
+            display: inline-block;
+            width: 70%;
+            height: 100%;
+            /* border: 1px solid red; */
+            text-align: center;
+            background-color: white;
+        }
+        .in .unit_1 {
+            display: inline-block;
+            width: 30%;
+            height: 100%;
+            /* border: 1px solid blue; */
+            float: left;
+        }
+        .in .unit_2 {
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            float: left;
+            /* border: 1px solid yellow; */
+        }
+        .unit_2 .middle {
+            display: inline-block;
+            width:90%;
+            height:50%;
+            position: relative;
+            left: 5%;
+            top: -77px;
+            text-align: center;
+            /* border: 1px solid green; */
+            float: left;
+        }
+        .unit_2 .bottom {
+            position: fixed;
+            display: inline-block;
+            width:90%;
+            height:15%;
+            text-align: center;
+            font-size: 1em;
+            /* border: 1px solid rgb(221, 88, 233); */
+
+            position: relative;
+            left: 0%;
+            top: -77px;
+        }
+        .unit_2 .img {
+            display: inline-block;
+            width:90%;
+            height:50%;
+            position: relative;
+            text-align: center;
+            /* border: 1px solid green; */
+        }
+        .search_txt{
+            position: relative;
+            top: 4px;
+            display: inline-block;
+            width:65%;
+            height:59%;
+            font-size:1em;
+            padding-left: 5px;
+            outline:none;
+            box-sizing: border-box;
+            color:black;
+            background-color:transparent;
+            border:0px transparent solid;
+            /* border: 1px solid rgb(46, 114, 192); */
+            }
+        .search_bnt {
+            width: 7%;
+            height:59%;
+            position: relative;
+            top: 15px;
+            /* color:#042AaC; */
+            outline:none;
+            display:inline;
+            margin-left: -10px;
+            box-sizing: border-box;
+            background-color:transparent;
+            border:0px transparent solid;
+            /* border: 1px solid rgb(46, 114, 192); */
+        }
+
+        /* 버튼 위에 커서 올렸을 때, */
+        .search_bnt:hover{
+            background-color: lightgray;
+        }
+
+    </style>
+    <body>
+        <!-- <div style="height: 3px; width: 100%;"></div> -->
+        <div class="head_width">
+            <div class="in">
+                <div class="unit_1">
+                    <A href="/WikiHome"><img src = "/images/wikilogo.png"  style="min-width: 70%; width: 100%; height: auto;"></A>
+                </div>
+                <div class="unit_2">
+                    <div style="height: 15px; width: 100%;"></div>
+                    <div class="img">
+                            <img src = "/images/text_box2.png"  style=" min-width: 70%; max-width: 80%; height: 100%;">
+                    </div>
+                    <!-- <div>
+                            <img src = "/search_button"  style="width: 100px; height: auto;">
+                    </div> -->
+                    <div class="middle">
+                        <form action="/search" method="GET">
+                            <input type="text" class="search_txt" name="keyword">
+                            <input type="button" class="search_bnt">
+                        </form>
+                     </div>
+                     <div class="bottom">
+                         <A href="/WikiHome/Vote" style="text-decoration:none; color: black; font-size: 1em;" >투표하기</A>
+                         &nbsp;&nbsp;<font size="3" color="gray">|</font>&nbsp;&nbsp;
+                         <A href="/WikiHome/NewFileGuide"style="text-decoration:none; color: black; font-size: 1em;">새 문서 작성</A>
+                         &nbsp;&nbsp;<font size="3" color="gray">|</font>&nbsp;&nbsp;
+                         <A href="/WikiHome/Tutorial"style="text-decoration:none; color: black; font-size: 1em;">튜토리얼</A>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <hr width="70%" style="border: 2px solid #00005c; margin: 1px 15% 10px;">
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>vote_page</title>
+        <% include ./partials/wiki_header %>
+    </head>
+    <style>
+        .vote_frame {
+            width: 100%;
+            height: 500px;
+            /* border: 1px solid red; */
+        }
+        .vote_block_frame {
+            width: 70%;
+            height: 100%;
+            margin: 0 15% 0;
+            /* border: 1px solid red; */
+            
+        }
+        .vote_content_frame{
+            width: 60%;
+            height: 100%;
+            border: 1px solid rgb(204, 203, 203);
+            float: left;
+            background-color: white;
+            /* border: 1px solid blue; */
+        }
+        .vote_message_frame {
+            width: 38%;
+            height: 100%;
+            float: right;
+            background-color: white;
+            border: 1px solid rgb(204, 203, 203);
+        }
+        .vote_title {
+            width: 100%;
+            height: 10%;
+            /* border: 1px solid blue; */
+        }
+        .vote_detail_frame {
+            width: 100%;
+            height: 74%;
+            /* border: 1px solid blue; */
+        }
+        .vote_btn_frame {
+            width: 100%;
+            height: 10%;
+            margin: 5px 0 0;
+            /* border: 1px solid rebeccapurple;    */
+        }
+        .vote_btn{
+            width: 45%;
+            height: 60%;
+            margin: 0 2% 0;
+            background-color: transparent;
+            /* border: transparent; */
+        }
+        .vote_message_view_frame {
+            width: 100%;
+            height: 87.5%;
+        }
+        .vote_message_input_frame{
+            width: 100%;
+            height: 8%;
+            /* border: 1px solid rebeccapurple;    */
+        }
+        .vote_input_text {
+            width: 80%;
+            height: 98%;
+            margin: 0 3% auto;
+            font-size: 1.3em;
+            padding-left: 1%;
+            padding-right: 1%;
+            float:left;
+        }
+        .vote_input_btn {
+            width: 10%;
+            height: 90%;
+            margin: 1% auto 0;
+            font-size: 0.7em;
+            color:rgb(82, 121, 248);
+            vertical-align: center;
+            background-color: transparent;
+            border:0px transparent;
+            /* border: 1px solid rebeccapurple;    */
+        }
+    </style>
+    <body>
+        <% for( var i = 0; i<rows.length; i++) { %>
+        <div style="width: 100%;height:20px;"></div>        
+        <div class="vote_frame">
+            <div class="vote_block_frame">
+                <div class="vote_content_frame">
+                    <div class="vote_title">
+                        <!-- 투표할 글의 제목 -->
+                        <a href="/WikiHome/Detail/<%=rows[i].index%>" class="vote_title_text"><%=rows[i].title%></a>
+                    </div>
+                    <hr width="100%" style="border: 0.5px solid rgb(204, 203, 203);">
+                    <div class="vote_detail_frame">
+                        <!-- 투표한 글 내용 -->
+                        <p><%=rows[i].createdAt%></p>
+                        <%=rows[i].content%>
+                    </div>
+                    <div class="vote_btn_frame">
+                        <!-- YES or NO vote button -->
+                        <hr width="100%" style="border: 0.5px solid rgb(204, 203, 203);">
+                        <form method="POST" action="WikiHome/Vote:1">
+                            <input type="button" name="YES_vote" value="YES" class="vote_btn">
+                            <input type="button" name="NO_vote" value="NO" class="vote_btn">
+                        </form>
+                    </div>
+                </div>
+                <div class="vote_message_frame">
+                    <div class="vote_message_view_frame">
+                        <!-- 투표에 대한 메시지 뷰 -->
+                        <div class="vote_message">
+                            <!-- 메시지 한 칸 -->
+                        </div>
+                    </div>
+                    <hr width="100%" style="border: 0.5px solid rgb(204, 203, 203);">
+                    <div class="vote_message_input_frame">
+                        <!-- 투표에 대한 메시지 입력란 -->
+                        <form action="/WikiHome/Vote:2" method="POST">
+                            <input type="text" name="message" class="vote_input_text">
+                            <input type="submit" name="message_submit" value="게시" class="vote_input_btn">
+                        </form>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <% } %>
+    </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WikiHome_page</title>
+    <% include ./partials/wiki_header %>
+    <style>
+      #bar{
+        width:20%;
+        height: 100%;
+        display:inline-block;
+        /* border: 1px solid blueviolet; */
+        float: left;
+      }
+      #board{
+        width: 78%;
+        height: 100%;
+        margin: 0px 0px 5px 5px;
+        display:inline-block;
+        /* border: 1px solid blue; */
+        float: bottom;
+      }
+      #wiki{
+        height: auto;
+        margin: 0px 0px 10px 0px;
+        /* border: 1px solid green; */
+      }
+      #voting{
+        width: 50%;
+        height: auto;
+        padding: 2%;
+        display: inline-block;
+        float: left;
+        /* border: 1px solid orange; */
+
+      }
+      #leader{
+        width: 40%;
+        height: auto;
+        padding: 10px;
+        display:inline-block;
+        /* border: 1px solid orange; */
+        float:right;
+      }
+      #background{
+        height: 30%;
+        width: auto;
+        background-image: url('/images/swu_background.png')
+      }
+      #title{
+        text-shadow: 1px 1px 2px #666666;
+        color: white;
+        font-size: 1em;
+        padding: 30px;
+        /* border: 1px solid red; */
+      }
+      .whole_frame {
+        width: 100%;
+        height: 100%;
+        /* border: 1px solid red; */
+      }
+      .frame {
+        position: inline-block;
+        width: 70%;
+        height: 1000px;
+        margin: 0 15% 0;
+        /* border: 1px solid red; */
+      }
+    </style>
+</head>
+<body>
+  <!-- <hr width="70%" style="border: 2px solid #00005C;"> -->
+  <div style="width: 100%; height: 10px;"></div>
+  <div class="whole_frame">
+    <div class="frame">
+      <div id="bar">
+        <details open>
+              <summary>건물</summary>
+              <ol>
+                <li>50주년 기념관</li>
+                <li>인문사회관</li>
+                <li>제1과학관</li>
+                <li>제2과학관</li>
+                <li>학생누리관</li>
+                <li>조형예술관</li>
+                <li>바롬기념관</li>
+                <li>고명우기념관</li>
+              </ol>
+        </details>
+        <details open>
+              <summary>동아리</summary>
+              <ol>
+                <li>해다움</li>
+                <li>캣슈넛</li>
+                <li>TIPSSY</li>
+                <li>예현</li>
+                <li>AISEC</li>
+                <li>RCY</li>
+                <li>스키부</li>
+                <li>치킨왔슈</li>
+              </ol>
+        </details>
+        <details open>
+              <summary>인물</summary>
+              <ol>
+                <li>김형종 교수님</li>
+                <li>김원희</li>
+                <li>김다영</li>
+                <li>노혜윤</li>
+                <li>윤혜원</li>
+                <li>김원희</li>
+              </ol>
+        </details>
+        <details open>
+              <summary>학교화제</summary>
+              <ol>
+                <li>슈키슈키</li>
+                <li>학교별 위키</li>
+                <li>종강</li>
+                <li>기말고사</li>
+                <li>첫눈</li>
+                <li>선거</li>
+              </ol>
+        </details>
+      </div>
+
+      <div id="board">
+        <h3 style="font-size: 230x; font-weight:bold; font-color:#244a82;">서울여대 위키</h3>
+        <hr color="#244a82" size="7px" width="180px" align="left">
+        <div id="wiki">
+          <div id="background">
+            <h1 id="title"> 여기는 서울여자대학교 위키피디아입니다.<br>
+              서울여자대학교에 관련된 내용이라면 어떤 내용이든지 담을 수 있는 위키입니다.<br>
+              서울여대백과는 누구나 자유롭게 열람 가능하지만 편집의 경우 로그인을 통해 이용하실 수 있습니다.
+            </h1>
+          </div>
+        </div>
+
+        <div id="voting">
+          <h3 style="font-size: 20px; font-weight:bold; font-color:#244a82;">진행중인 투표</h3>
+          <hr color="#244a82" size="7px" width="180px" align="left">
+          <img style="width: 100%;" src="/images/voting.png">
+        </div>
+
+        <div id="leader">
+          <h3 style="font-size: 20px; font-weight:bold; font-color:#244a82;">이 달의 리더</h3>
+          <hr color="#244a82" size="7px" width="108px" align="left">
+          <img style="width: 100%" src="/images/leader.png">
+        </div>
+
+      </div>
+    </div>
+</div>
+</body>
+</html>

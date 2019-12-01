@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #searchBar{
+      width: 455px;
+      height: 50px;
+      border: 1px solid #0040FF;
+      background: #ffffff;
+    }
+    #text {
+      font-size: 16px;
+      width: 440px;
+      height: 100%;
+      padding: 0px 0px 0px 15px;
+      border: 0px;
+      outline: none;
+      text-align: left;
+    }
+    #button{
+      width: 455px;
+      height: 60px;
+      border: 0px;
+      background: #0040FF;
+      outline: none;
+      color: #ffffff;
+    }
+    #center{
+      text-align:center;
+      margin: 40px auto 15px auto;
+    }
+    #box{
+      margin: 15px auto 0px auto;
+      width: 455px;
+      height: 90px;
+    }
+    #box.p{
+      text-align:left;
+    }
+    </style>
+    }
+</head>
+
+<body>
+  <div style="text-align:center; margin:70px auto 60px auto;">
+    <a href="/"><img style= " width:400px;" src="/images/main_logo.png"></a>
+  </div>
+
+<form action="/User/Signup" method="post">
+    <div id="box">
+        <p>아이디</p>
+        <div id="searchBar">
+          <input type="text" id="text" name="userId" >
+        </div>
+    </div>
+    <div id="box">
+        <p>비밀번호</p>
+        <div id="searchBar">
+          <input type="password" id="text" name="password">
+        </div>
+    </div>
+    </div>
+    <div id="box">
+        <p>이름</p>
+        <div id="searchBar">
+          <input type="text" id="text" name="userName">
+        </div>
+    </div>
+    <div id="box">
+        <p>대학교</p>
+        <div id="searchBar">
+          <input type="text" id="text" name="userUniversity">
+        </div>
+    </div>
+    <div id="box">
+        <p>전공</p>
+        <div id="searchBar">
+          <input type="text"id="text" name="userMajor">
+        </div>
+    </div>
+    <div id="box">
+        <p>이메일</p>
+        <div id="searchBar">
+          <input type="text" id="text" name="userEmail">
+        </div>
+    </div>
+    <div id="center">
+        <input type="submit" id="button" value="회원가입">
+    </div>
+
+</form>
+</body>
+</html>

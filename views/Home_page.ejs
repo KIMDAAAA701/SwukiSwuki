@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home_page</title>
+  <style type="text/css">
+    #searchBar{
+      margin: 40px auto 15px auto;
+      width: 455px;
+      height: 50px;
+      border: 1px solid #0040FF;
+      background: #ffffff;
+    }
+    #text {
+      input:-ms-input-placeholder{color:#a8a8a8;}
+      input:-webkit-input-placeholder{color:#a8a8a8;}
+      input:-moz-placeholder{color:#a8a8a8;}
+
+      font-size: 25px;
+      width: 350px;
+      height: 100%;
+      padding: 15px;
+      border: 0px;
+      outline: none;
+      text-align: left;
+    }
+    #button{
+      width: 75px;
+      height: 50px;
+      float: right;
+      border: 0px;
+      background: #0040FF;
+      outline: none;
+      color: #ffffff;
+    }
+    #realTime{
+      margin: 0px auto 0px auto;
+      width: 350px;
+      height: 40px;
+    }
+    #login{
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
+
+  </style>
+</head>
+
+
+<body>
+  <form action="/User/Login" method="get">
+    <div id="login">
+      <input type="image" style="width:60px; height:60px;" src="/images/User.png" value="Submit" align="absmiddle">
+    </div>
+  </form>
+
+  <div style="text-align:center; margin:130px auto 0px auto;">
+    <a href="/"><img style= " width:400px;" src="/images/main_logo.png"></a>
+  </div>
+
+  <div id="searchBar">
+    <form action="/WikiHome" method="get">
+      <input type="text" id="text" name="userUniversity" placeholder="대학교 입력" />
+      <input type="submit" id="button" value="검색"/>
+    </form>
+  </div>
+
+  <div id="realTime">
+    <span style="height: 40px; width: 80px; font-size: 15px; font-color :#a8a8a8;"> 실시간&nbsp&nbsp|&nbsp&nbsp</span>
+    <span> <a href="/WikiHome"> 서울여자대학교 </a></span>
+  </div>
+
+</body>
+</html>

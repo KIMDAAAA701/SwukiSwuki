@@ -1,0 +1,11 @@
+{
+    "development": {
+      "username": "swuki_id",
+      "password": "swuki_pw",
+      "database": "swukiswuki",
+      "host": "13.209.74.6",
+      "dialect": "mysql",
+      "operatorsAliases": false,
+      "logging": false
+    }
+}

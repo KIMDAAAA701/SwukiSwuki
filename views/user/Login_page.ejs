@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>login</title>
+  <style type="text/css">
+    #searchBar{
+      margin: 15px auto 15px auto;
+      width: 455px;
+      height: 60px;
+      border: 1px solid #0040FF;
+      background: #ffffff;
+    }
+    #text {
+      input:-ms-input-placeholder{color:#a8a8a8;}
+      input:-webkit-input-placeholder{color:#a8a8a8;}
+      input:-moz-placeholder{color:#a8a8a8;}
+
+      font-size: 25px;
+      width: 440px;
+      height: 100%;
+      padding: 0px 0px 0px 15px;
+      border: 0px;
+      outline: none;
+      text-align: left;
+    }
+    #button{
+      width: 455px;
+      height: 60px;
+      border: 0px;
+      background: #0040FF;
+      outline: none;
+      color: #ffffff;
+    }
+    #center{
+      text-align:center;
+      margin: 40px auto 15px auto;
+    }
+    #box{
+      width: 455px;
+      height: 60px;
+      top: 50%;
+      left: 50%;
+      margin: 0px auto 0px auto;
+    }
+  </style>
+
+</head>
+<body>
+  <div style="text-align:center; margin:70px auto 60px auto;">
+    <a href="/"><img style= " width:400px;" src="/images/main_logo.png"></a>
+  </div>
+
+  <form action="/User/Login" method="post">
+      <div id="searchBar">
+        <td><input type="text" id="text" name="userId" placeholder="사용자 아이디" ></td>
+      </div>
+      <div id="searchBar">
+        <input type="password" id="text" name="password" placeholder="비밀번호"></td>
+      </div>
+      <div id="center">
+        <input type="submit" id="button" value="로그인">
+      </div>
+  </form>
+
+    <div id="box">
+      <span style="height:20px; width:160px; float:left; font-size: 15px; font-color :#a8a8a8;"> 아이디&nbsp/&nbsp비밀번호&nbsp찾기</span>
+      <a href="/User/Signup"><span style="height: 20px; width: 60px; float: right; font-size: 15px; font-color :#a8a8a8;"> 회원가입</span></a>
+    </div>
+
+
+</body>
+
+</html>
