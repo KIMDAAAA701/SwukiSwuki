@@ -46,6 +46,7 @@ app.use("/index", require("./routes/index.js"));
 app.use("/", require("./routes/Home_router.js"));
 app.use("/User", require("./routes/User_router.js"));
 app.use("/WikiHome", require("./routes/WikiHome_router.js"));
+app.use("/Ether", require("./routes/Ether.js"));
 // app.use("/image", require("./routes/Image_router.js"));
 
 // app.use('/', indexRouter);

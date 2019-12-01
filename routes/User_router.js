@@ -32,8 +32,8 @@ router.post("/Signup", async function(req,res,next){
 
 // 로그인 GET
 router.get('/Login', function(req, res, next) {
-  console.log(req.session.id);
-  if(req.session.id == sessionId){
+  console.log(req.session.sId);
+  if(req.session.sId){
     res.render("user/Mypage_page");
     console.log("로그인");
   }
@@ -46,7 +46,6 @@ router.get('/Login', function(req, res, next) {
 // 로그인 POST
 router.post("/Login", async function(req,res,next){
   let body = req.body;
-
   let result = await models.user.findOne({
     where: {
       id : body.userId
@@ -61,8 +60,7 @@ router.post("/Login", async function(req,res,next){
   if(dbPassword === hashPassword){
     console.log("비밀번호 일치");
     // 세션 설정
-    sessionId = body.userId;
-    req.session.id = sessionId;
+    req.session.sId = result.id;
     res.redirect("/User/Mypage");
     console.log("로그인 POST 성공");
   }
@@ -89,10 +87,11 @@ router.post("/Logout", async function(req,res,next){
 // 마이페이지 GET
 router.get('/Mypage', function(req, res, next) {
   res.render("user/Mypage_page"); //응답할 페이지
+  console.log(req.session);
 });
 // 마이페이지 POST
 router.post("/Mypage", async function(req,res,next){
-  res.redirect("/Mypage");
+    res.redirect("/User/Mypage");
 });
 
 
