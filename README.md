@@ -1,1 +1,1 @@
-# SwukiSwuki
+# SwukiSwuki- seoul women's univ. pbl
