@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       uniqeu: true
     },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     onVote: {
@@ -36,6 +36,14 @@ module.exports = (sequelize, DataTypes) => {
 
   newfile.associate = function(models) {
     models.newfile.hasMany(models.voting_file, {
+        foreignKey: 'voting_index',
+        onDelete: 'no action',
+        allowNull: false
+    });
+  }
+
+  newfile.associate = function(models) {
+    models.newfile.hasMany(models.log_vote_file, {
         foreignKey: 'voting_index',
         onDelete: 'no action',
         allowNull: false

@@ -18,7 +18,7 @@ router.post("/", async function(req,res,next){
 });
 
 router.get('/Vote', function(req, res, next) {
-  models.newfile.findAll({
+  var results = models.newfile.findAll({
     raw: true,
     attributes: ['index', 'writer','title', 'content', 'createdAt'],
     where: { onVote: 't' }
@@ -36,65 +36,140 @@ router.get('/NewFileGuide', function(req, res, next){
   res.render("NewFileGuide_page");
 })
 
-// Edit_page GET
-router.get('/Edit', function(req, res, next) {
-  res.render("Edit_page"); //응답할 ejs
-});
+// Edit_Detail GET
+router.get('/Edit_Detail',urlencodeParser, function(req, res, next) {
+  var title = req.query.title;
+  console.log("title:::"+title);
+
+  models.document.findAll({
+    raw: true,
+    attributes: ['title', 'content'],
+    where: {
+      title: req.query.title
+    }
+  }).then( result => {
+    console.log(result)
+    res.render('Edit_Detail_page', {rows: result})
+  }).catch(err => {console.log(err)});
+}) // get '/Edit_Detail'
+
+//Edit_Detail POST
+router.post('/Edit_Detail',urlencodeParser, function(req, res, next) {
+  let body = req.body;
+  let test_id = "dayoung";
+  let onVote = body.on_vote;
+
+  function creating_newfile() {
+    return new Promise(function(resolve, reject){
+      resolve(models.newfile.create({
+          writer: test_id,
+          title: body.title_fild,
+          content: body.editor,
+          onVote: body.on_vote
+        }));
+      reject(new Error("newfile : Request is failed"));
+    });
+  }
+  function updating_document() {
+    return new Promise(function(resolve, reject){
+      resolve(models.document.update({content: body.editor},
+        {where: {title: body.title_fild}, returning: true}));
+      reject(new Error("document : Request is failed"));
+    });
+  }
+
+  creating_newfile().then(function(){
+    console.log('creating_newfile 성공');
+    updating_document().then(function(){
+      console.log('updating_document 성공');
+    }).catch(function(err){
+      console.log(err);
+    })
+  }).catch(function(err){
+    console.log(err);
+  })
+
+  res.redirect("/WikiHome"); //url
+})//Edit_Detail POST end
+
+//Edit_page get
+router.get('/Edit', function(req, res, next){
+  res.render("Edit_page");
+})
+
 // Edit_page post - DB: newfile
 router.post("/Edit",  urlencodeParser, async function(req,res,next){ //url
   
   let body = req.body;
   let test_id = "dayoung";
-  let onVote = body.on_vote;
+  let on_vote = body.on_vote;
+  console.log(body);
+  var inx = 0;
 
-  // let result = models.newfile.create({
-  //   // writer: req.session.id,
-  //   writer: test_id,
-  //   title: body.title_fild,
-  //   content: body.editor,
-  //   onVote: body.on_vote
-  // })
+  function creating_newfile() {
+    return new Promise(function(resolve, reject){
+      resolve(models.newfile.create({
+          writer: test_id,
+          title: body.title_fild,
+          content: body.editor,
+          onVote: on_vote
+        }));
+      reject(new Error("newfile : Request is failed"));
+    });
+  }//creating_newfile() end
+  function creating_document() {
+    return new Promise(function(resolve, reject){
+      resolve(models.document.create({
+          // writer: req.session.id,
+          title: body.title_fild,
+          content: body.editor
+        }));
+      reject(new Error("document : Request is failed"));
+    });
+  }//creating_document() end
 
-  models.newfile.create({
-    writer: test_id,
-    title: body.title_fild,
-    content: body.editor,
-    onVote: body.on_vote
+  // function search_index() {
+  //   return new Promise(function(resolve, reject){
+  //     resolve(
+  //       models.newfile.findAll({
+  //         raw: true,
+  //         // attributes: ['index'],
+  //         where: {
+  //           title: body.title_fild,
+  //           content: body.editor
+  //         }
+  //        }).then(result => {
+  //         console.log("result::::::::"+result)
+  //     }))
+  //     reject(new Error("search_index in newfile: Request is failed"))
+  //   })
+  // }// search_index() end
+  
+  function creating_voting_file() {
+    return new Promise(function(resolve, reject){
+      resolve(models.voting_file.create({
+          voting_index: key
+        }));
+      reject(new Error("voting_file : Request is failed"));
+    });
+  }//creating_voting_file() end
+
+  creating_newfile().then(function(){
+    console.log('creating_newfile 성공');
+    creating_document().then(function(){
+      console.log('creating_document 성공');
+      if (on_vote == 't'){
+        
+      }else{
+        console.log('투표 선택을 하지 않았다')
+      }
+    }).catch(function(err){
+      console.log(err);
+    })
+  }).catch(function(err){
+    console.log(err);
   })
-  .then( result => {
-    console.log("newfile 데이터 추가 완료");
-  })
-  .catch( err => {
-    console.log('err::'+err);
-    console.log("newfile 데이터 추가 실패");
-  })
 
-  // create_document(body.title_fild, body.editor, function(result){
-  //   console.log(result);
-  // })
-  //여기다가 onVote가 1인 애들을 voting_file 테이블에 집어 넣을 생각이었다.
-
-  // models.documents.create({
-  //   // writer: req.session.id,
-  //   writer: test_id,
-  //   title: body.title_fild
-  // })
-  // .then( result => {
-  //   console.log("documents 데이터 추가 완료");
-  //   res.redirect("/WikiHome");
-  // })
-  // .catch( err => {
-  //   console.log("documents 데이터 추가 실패");
-  // })
-
-  //document 테이블 생성하기
-  // let result3 = models.documents.create({
-  //   // writer: req.session.id,
-  //   writer: test_id,
-  //   title: body.title_fild
-  // })
-
-  // console.log(body);
   res.redirect("/WikiHome"); //url
 });
 
@@ -107,18 +182,46 @@ router.post("/Tutorial", async function(req,res,next){ //url
   res.redirect("/Tutorial"); //응답할 url
 });
 
-router.get("/Search", function(req,res, next){
-  res.render("Search_page");
+//Search page
+router.get("/Search/", function(req,res, next){
+  console.log("param :", req.param);
+  var keyword = req.param('keyword');
+  console.log("-------------------");
+  console.log("keyword:" + keyword);
+  models.document.findAll({
+    raw: true,
+    attributes: ['title'],
+    where: { title: keyword }
+  }).then( results => {
+    console.log(results);
+    console.log('Search성공');
+    res.render("Search_page", { rows: results });
+  }).catch( err => {
+    console.log(err);
+  })
 });
 router.post("/Search", function(req, res, next){
   res.render("Search_page"); //응답할 url
 });
 
-router.get("/Detail/:idx", function(req, res, next){
-  var idx = req.params.index;
-  console.log("params: "+req.param);
-  console.log("idx:"+idx);
-  res.render("Detail_page");
+//Detail page
+router.get('/Detail/:keyword',urlencodeParser, function(req, res, next){
+  var keyword = req.params.keyword;
+  console.log("keyword:"+keyword);
+
+  models.document.findAll({
+    raw: true,
+    attributes: ['title', 'content'],
+    where: { title: keyword }
+  }).then( results => {
+    console.log(results);
+    console.log('Detail_findAll 성공');
+    res.render("Detail_page", { rows: results });
+  }).catch( err => {
+    console.log(err);
+  })
+
+  // res.render("Detail_page");
 });
 
 

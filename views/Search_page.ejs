@@ -16,12 +16,29 @@
             background-color: white;
             border: 0.5px solid rgb(144, 144, 146);   
         }
+        .detail_title_frame{
+            position: inline-block;
+            width: 80%;
+            height: 50;
+            margin: 5% 5% auto;
+        }
+        .search_title {
+            width: 100%;
+            height: 100%;
+            font-size: 2em;
+            text-decoration:none;
+            color: black;
+        }
     </style>
     <body>
+        <% for( var i = 0; i<rows.length; i++) { %>
         <div class="detail_frame">
             <div class="detail_block_frame">
-                <a href="/WikiHome/Search/:<% %>"></a>
+                <div class="detail_title_frame">
+                    <a href="/WikiHome/Detail/<%= rows[i].title %>" class="search_title"><%= rows[i].title %></a>
+                </div>
             </div>
         </div>
+        <% } %>
     </body>
 </html>

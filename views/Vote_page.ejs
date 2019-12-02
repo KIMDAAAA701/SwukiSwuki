@@ -83,6 +83,10 @@
             border:0px transparent;
             /* border: 1px solid rebeccapurple;    */
         }
+        .vote_title_text{
+            text-decoration:none;
+            font-size:  1em;
+        }
     </style>
     <body>
         <% for( var i = 0; i<rows.length; i++) { %>
@@ -92,7 +96,7 @@
                 <div class="vote_content_frame">
                     <div class="vote_title">
                         <!-- 투표할 글의 제목 -->
-                        <a href="/WikiHome/Detail/<%=rows[i].index%>" class="vote_title_text"><%=rows[i].title%></a>
+                        <a href="/WikiHome/Detail/<%=rows[i].title%>" class="vote_title_text"><%=rows[i].title%></a>
                     </div>
                     <hr width="100%" style="border: 0.5px solid rgb(204, 203, 203);">
                     <div class="vote_detail_frame">
@@ -103,7 +107,7 @@
                     <div class="vote_btn_frame">
                         <!-- YES or NO vote button -->
                         <hr width="100%" style="border: 0.5px solid rgb(204, 203, 203);">
-                        <form method="POST" action="WikiHome/Vote:1">
+                        <form method="POST" action="WikiHome/Vote">
                             <input type="button" name="YES_vote" value="YES" class="vote_btn">
                             <input type="button" name="NO_vote" value="NO" class="vote_btn">
                         </form>
