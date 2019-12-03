@@ -26,29 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  newfile.associate = function(models) {
-    models.newfile.hasMany(models.blockchain, {
-        foreignKey: 'file_index',
-        onDelete: 'no action',
-        allowNull: false
-    });
-  }
-
-  newfile.associate = function(models) {
-    models.newfile.hasMany(models.voting_file, {
-        foreignKey: 'voting_index',
-        onDelete: 'no action',
-        allowNull: false
-    });
-  }
-
-  newfile.associate = function(models) {
-    models.newfile.hasMany(models.log_vote_file, {
-        foreignKey: 'voting_index',
-        onDelete: 'no action',
-        allowNull: false
-    });
-  }
-
   return newfile;
 };

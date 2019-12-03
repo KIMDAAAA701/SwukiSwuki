@@ -4,15 +4,22 @@
         <% include ./partials/wiki_header %>
     </head>
     <style>
-        .big_frame {
+        .newfileguide_frame {
             width: 100%;
-            height: auto;
+            height: 100%;
+        }
+        .newfileguide_block_frame{
+            width: 70%;
+            height: 100%;
+            margin: 0 15% 0;
             border: 1px solid blue;
         }
     </style>
     <body>
-        <div class="big_frame">
-            <A href="/WikiHome/Edit">go Edit_page</A>
+        <div class="newfileguide_frame">
+            <div class="newfileguide_block_frame">
+              <A href="/WikiHome/Edit">go Edit_page</A>
+            </div>
         </div>
     </body>
 </html>

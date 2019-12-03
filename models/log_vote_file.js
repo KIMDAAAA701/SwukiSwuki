@@ -1,14 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const log_vote_file = sequelize.define('log_vote_file', {
+    index: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
     Yes_vote: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: true
       },
     No_vote: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: true
     },
     vote_result: {
-        type: DataTypes.CHAR
+        type: DataTypes.CHAR,
+        allowNull: true
     }
   });
 
